@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="container texts-list">
+    <h1>{{ .Title }}</h1>
+    <p class="intro">{{ .Content }}</p>
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search texts...">
+    </div>
+    <div class="texts-grid">
+        {{ range .Pages }}
+            <div class="text-card">
+                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                {{ if .Params.archive }}<p class="meta"><strong>Archive:</strong> {{ .Params.archive }}</p>{{ end }}
+                {{ if .Params.date }}<p class="meta"><strong>Date:</strong> {{ .Params.date }}</p>{{ end }}
+                {{ if .Params.language }}<p class="meta"><strong>Language:</strong> {{ .Params.language }}</p>{{ end }}
+                <p class="excerpt">{{ .Summary }}</p>
+                <a href="{{ .Permalink }}" class="read-more">Read full text →</a>
+            </div>
+        {{ end }}
+    </div>
+</div>
+<script>
+    document.getElementById('search-input').addEventListener('keyup', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const cards = document.querySelectorAll('.text-card');
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(searchTerm) ? 'block' : 'none';
+        });
+    });
+</script>
+{{ end }}
