@@ -1,0 +1,36 @@
+# Hugo Configuration for Manuscript Digital Edition
+
+title = "Manuscript Digital Edition"
+baseURL = "https://example.com/"
+theme = "your-theme-name"
+
+[params]
+  author = "Your Name"
+  description = "A digital edition of manuscript collection"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 3
+
+[content]
+  [content.home]
+    layout = "index"
+
+  [content.page]
+    layout = "single"
+
+[markup]
+  [markup.goldmark]
+    autoHeadingID = true
