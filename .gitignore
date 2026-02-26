@@ -1,0 +1,25 @@
+# Hugo ignores
+# This file should be placed at the root of your Hugo project.
+
+# Build directories
+/public/
+/resources/_gen/
+
+# Cache directories
+/.cache/
+/.hugo_build.lock
+
+# Hugo config files
+/config.toml
+/config.yaml
+/config.json
+
+# Logs
+/logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Local environment files
+.env
